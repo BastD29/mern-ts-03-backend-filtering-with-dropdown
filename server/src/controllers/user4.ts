@@ -5,16 +5,22 @@
 // const getUsers = async (req: Request, res: Response) => {
 //   try {
 //     const query = req.query;
+//     console.log("query:", query); // ex: query: { search: 'd', sex: 'male' }
+
 //     const filters: FilterType = {};
+//     // console.log("filters:", filters);
 
 //     Object.keys(query).forEach((key) => {
 //       if (query[key] && query[key] !== "") {
 //         console.log(`query[${key}]:`, query[key]);
-//         // Apply case-insensitive regex for text fields (name, city)
-//         if (key === "name" || key === "city") {
-//           filters[key] = { $regex: new RegExp(query[key] as string, "i") };
+//         if (key === "search") {
+//           filters.$or = [
+//             { name: { $regex: new RegExp(query[key] as string, "i") } },
+//             { city: { $regex: new RegExp(query[key] as string, "i") } },
+//             { sex: { $regex: new RegExp(query[key] as string, "i") } },
+//             // Add more fields here if necessary
+//           ] as Array<{ [key: string]: { $regex: RegExp } }>;
 //         } else {
-//           // Exact match for select inputs (sex, etc.)
 //           filters[key] = query[key] as string;
 //         }
 //       }
