@@ -5,7 +5,7 @@ import buildFilters from "../utils/filter";
 const getUsers = async (req: Request, res: Response) => {
   try {
     const filters = buildFilters(req.query);
-    console.log("filters:", filters);
+    // console.log("filters:", filters);
 
     const users = await User.find(filters);
     res.status(200).json(users);

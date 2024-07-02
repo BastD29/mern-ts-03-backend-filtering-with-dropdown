@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App/App";
+import App from "./components/App/App2";
 import "./style/index.scss";
 import { FilterProvider } from "./context/FilterContext/FilterProvider";
 import { UserProvider } from "./context/UserContext/UserProvider";
