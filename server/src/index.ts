@@ -1,5 +1,6 @@
 import config from "./config";
-import express, { Request, Response } from "express";
+import express from "express";
+import cors from "cors";
 import user from "./routes/user";
 import connectDB from "./db2";
 
@@ -9,14 +10,29 @@ const { port, nodeEnv } = config;
 
 const app = express();
 
+const allowedOrigins = ["http://localhost:5173"];
+
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, callback) => {
+    if (
+      !origin ||
+      origin.includes("Postman") ||
+      allowedOrigins.includes(origin)
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/users", user);
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, World!");
-});
 
 app.listen(port, () => {
   console.log(

@@ -1,12 +1,13 @@
 import { FC } from "react";
-import useIdle from "../../hooks/useIdle";
+import UserList from "../UserList/UserList";
+import Filter from "../Filter/Filter";
 import style from "./App.module.scss";
 
 const App: FC = () => {
-  const isIdle = useIdle(3000); // 3 seconds
   return (
     <div className={style["app"]}>
-      {isIdle ? <p>User is idle</p> : <p>User is active</p>}
+      <Filter />
+      <UserList />
     </div>
   );
 };

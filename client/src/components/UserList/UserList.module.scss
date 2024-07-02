@@ -1,0 +1,13 @@
+.user-list {
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
