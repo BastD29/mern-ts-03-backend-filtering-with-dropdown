@@ -1,10 +1,13 @@
 import { CLEAR_FILTER, SET_FILTER } from "../constants/actions";
-import { FilterAction } from "../models/action";
+import { FilterActionType } from "../models/action";
 import { FilterType } from "../models/filter";
 
 const initialFilterState: FilterType = {};
 
-const filterReducer = (state: FilterType, action: FilterAction): FilterType => {
+const filterReducer = (
+  state: FilterType,
+  action: FilterActionType
+): FilterType => {
   switch (action.type) {
     case SET_FILTER:
       return { ...state, [action.payload.name]: action.payload.value };

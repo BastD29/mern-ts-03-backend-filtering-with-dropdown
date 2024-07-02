@@ -4,10 +4,10 @@ import { FilterType } from "../models/filter";
 const getUsers = async (filters: FilterType) => {
   console.log("filters from service:", filters);
 
-  const query = new URLSearchParams(filters).toString();
-  console.log("query:", query);
+  const queryParams = new URLSearchParams(filters).toString();
+  console.log("queryParams:", queryParams);
 
-  const response = await fetch(`${BASE_URL}${USERS}?${query}`);
+  const response = await fetch(`${BASE_URL}${USERS}?${queryParams}`);
   // console.log("response:", response);
 
   if (!response.ok) {

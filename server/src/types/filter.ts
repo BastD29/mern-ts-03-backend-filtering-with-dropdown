@@ -1,5 +1,5 @@
 type FilterType = {
-  [key: string]: string | undefined;
+  [key: string]: string | { $regex: RegExp } | undefined;
 };
 
 export type { FilterType };

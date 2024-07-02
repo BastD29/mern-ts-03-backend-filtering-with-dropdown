@@ -5,16 +5,27 @@ import { FilterType } from "../types/filter";
 const getUsers = async (req: Request, res: Response) => {
   try {
     const query = req.query;
-    const filter: FilterType = {};
+    const filters: FilterType = {};
 
     Object.keys(query).forEach((key) => {
-      if (query[key]) {
-        // console.log("query[key]:", query[key]);
-        filter[key] = query[key] as string;
+      if (query[key] && query[key] !== "") {
+        console.log(`query[${key}]:`, query[key]);
+        // Apply case-insensitive regex for text fields (name, city)
+        if (key === "name" || key === "city") {
+          filters[key] = { $regex: new RegExp(query[key] as string, "i") };
+        } else {
+          // Exact match for select inputs (sex, etc.)
+          filters[key] = query[key] as string;
+        }
       }
     });
 
-    const users = await User.find(filter);
+    // console.log("constructed filters:", filters);
+
+    const users = await User.find(filters);
+    // const users = await User.find({ name: "a" });
+    // console.log("users found:", users);
+
     res.status(200).json(users);
   } catch (error) {
     console.error("Error fetching users:", error);
