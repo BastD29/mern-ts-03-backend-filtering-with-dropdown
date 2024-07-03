@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { FilterContext } from "../context/FilterContext/FilterContext";
+// import { useContext } from "react";
+// import { FilterContext } from "../context/FilterContext/FilterContext";
 
-export const useFilterContext = () => {
-  const context = useContext(FilterContext);
+// export const useFilterContext = () => {
+//   const context = useContext(FilterContext);
 
-  if (!context) {
-    throw new Error("useFilterContext must be used within a FilterProvider");
-  }
+//   if (!context) {
+//     throw new Error("useFilterContext must be used within a FilterProvider");
+//   }
 
-  return context;
-};
+//   return context;
+// };

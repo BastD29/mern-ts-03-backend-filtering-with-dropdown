@@ -1,6 +1,6 @@
 // import { FC, useEffect, useState } from "react";
 // import { getUsers } from "../../services/user";
-// import { useFilter } from "../../hooks/useFilter2";
+// import { useFilter } from "../../hooks/useFilter";
 // import { useUserContext } from "../../hooks/useUserContext";
 // import { SET_USERS } from "../../constants/actions";
 // import UserItem from "../UserItem/UserItem";

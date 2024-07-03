@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App/App2";
+import App from "./components/App/App3";
 import "./style/index.scss";
-import { FilterProvider } from "./context/FilterContext/FilterProvider";
+import { FilterProvider } from "./context/FilterContext/FilterProvider2";
 import { UserProvider } from "./context/UserContext/UserProvider";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
