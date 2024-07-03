@@ -50,12 +50,16 @@ const UserList: FC = () => {
 
   return (
     <div className={style["user-list"]}>
-      {!isLoading && !error && users && users.length > 0 && (
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {!isLoading && !error && users && users.length > 0 ? (
         <ul>
           {users.map((user) => (
             <UserItem user={user} key={user._id} />
           ))}
         </ul>
+      ) : (
+        !isLoading && !error && <p>No user found</p>
       )}
     </div>
   );
