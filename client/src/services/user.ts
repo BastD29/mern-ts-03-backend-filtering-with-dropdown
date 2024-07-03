@@ -5,7 +5,15 @@ const getUsers = async (filters: FilterType) => {
   try {
     console.log("filters from service:", filters);
 
-    const queryParams = new URLSearchParams(filters).toString();
+    // Filter out empty values from the filters object (ex: users instead of users?search=)
+    const filteredFilters = Object.keys(filters)
+      .filter((key) => filters[key])
+      .reduce((obj, key) => {
+        obj[key] = filters[key];
+        return obj;
+      }, {} as FilterType);
+
+    const queryParams = new URLSearchParams(filteredFilters).toString();
     console.log("queryParams:", queryParams);
 
     const response = await fetch(`${BASE_URL}${USERS}?${queryParams}`);
