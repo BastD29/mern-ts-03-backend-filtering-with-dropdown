@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
+import path from "path";
 const env = process.env.NODE_ENV || "local";
-dotenv.config({ path: `./environments/.env.${env}` });
+// dotenv.config({ path: `./environments/.env.${env}` });
+dotenv.config({ path: path.resolve(__dirname, `../environments/.env.${env}`) });
 import { checkEnvVariables } from "./utils/checkEnvVariables";
 
 // import * as dotenv from "dotenv";
