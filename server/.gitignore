@@ -2,6 +2,8 @@
 .env.development
 .env.local
 .env.production
+.env.staging
+.env.test
 
 # Ignore node modules
 node_modules
