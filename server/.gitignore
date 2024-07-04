@@ -5,5 +5,8 @@
 .env.staging
 .env.test
 
-# Ignore node modules
+# Ignore node_modules folder
 node_modules
+
+# Ignore dist folder
+dist
