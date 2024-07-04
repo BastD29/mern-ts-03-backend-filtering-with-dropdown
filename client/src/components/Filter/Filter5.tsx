@@ -1,24 +1,16 @@
 import { FC } from "react";
 import { useFilter } from "../../hooks/useFilter2";
-import { useFilterContext } from "../../hooks/useFilterContext2";
+import SearchInput from "../SearchInput/SearchInput";
 import Dropdown from "../Dropdown/Dropdown2";
 import { sex } from "../../constants/options";
 import style from "./Filter.module.scss";
 
 const Filter: FC = () => {
-  const { handleFilter, filters, clearFilter } = useFilter();
-  const { searchTerm } = useFilterContext();
+  const { filters, clearFilter } = useFilter();
 
   return (
     <div className={style["filter"]}>
-      <input
-        type="search"
-        name="search"
-        value={searchTerm}
-        onChange={handleFilter}
-        placeholder="Search"
-        // autoFocus
-      />
+      <SearchInput />
 
       <Dropdown
         label="Sex"

@@ -3,7 +3,12 @@ import { CLEAR_FILTER, SET_FILTER } from "../constants/actions";
 import { useFilterContext } from "./useFilterContext2";
 
 const useFilter = () => {
-  const { dispatch, state: filters, setSearchTerm } = useFilterContext();
+  const {
+    dispatch,
+    state: filters,
+    searchTerm,
+    setSearchTerm,
+  } = useFilterContext();
 
   const handleFilter = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -28,7 +33,7 @@ const useFilter = () => {
   //   });
   // }, [debouncedSearchTerm, dispatch]);
 
-  return { handleFilter, clearFilter, filters };
+  return { handleFilter, clearFilter, filters, searchTerm };
 };
 
 export { useFilter };
