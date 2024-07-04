@@ -3,4 +3,9 @@ const sex = [
   { value: "female", label: "Female" },
 ];
 
-export { sex };
+const cities = [
+  { value: "London", label: "London" },
+  { value: "Paris", label: "Paris" },
+];
+
+export { sex, cities };

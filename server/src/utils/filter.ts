@@ -6,8 +6,8 @@ const buildFilters = (query: any): FilterType => {
   if (query.search && typeof query.search === "string") {
     filters.$or = [
       { name: { $regex: new RegExp(query.search, "i") } },
-      { city: { $regex: new RegExp(query.search, "i") } },
-      { sex: { $regex: new RegExp(query.search, "i") } },
+      // { city: { $regex: new RegExp(query.search, "i") } },
+      // { sex: { $regex: new RegExp(query.search, "i") } },
     ];
   }
 
@@ -15,6 +15,7 @@ const buildFilters = (query: any): FilterType => {
     const value = query[key];
     if (value && typeof value === "string" && key !== "search") {
       filters[key] = value;
+      // filters[key] = { $regex: new RegExp(value, "i") };
     }
   });
 
