@@ -6,5 +6,6 @@ declare namespace NodeJS {
     MONGO_URI: string;
     JWT_SECRET: string;
     JWT_KEY: string;
+    ALLOWED_ORIGINS: string;
   }
 }

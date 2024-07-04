@@ -17,6 +17,7 @@ const requiredEnvVariables = [
   "SESSION_SECRET_KEY",
   "JWT_SECRET",
   "JWT_KEY",
+  "ALLOWED_ORIGINS",
 ];
 
 checkEnvVariables(requiredEnvVariables);
@@ -28,6 +29,7 @@ const config = {
   sessionSecretKey: process.env.SESSION_SECRET_KEY as string,
   jwtSecret: process.env.JWT_SECRET as string,
   jwtKey: process.env.JWT_KEY as string,
+  allowedOrigins: process.env.ALLOWED_ORIGINS as string,
 };
 
 // console.log("Config:", config);

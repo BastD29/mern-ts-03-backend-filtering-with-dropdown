@@ -6,11 +6,9 @@ import connectDB from "./db2";
 
 connectDB();
 
-const { port, nodeEnv } = config;
+const { port, nodeEnv, allowedOrigins } = config;
 
 const app = express();
-
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5175"];
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
