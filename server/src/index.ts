@@ -33,7 +33,5 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/users", user);
 
 app.listen(port, () => {
-  console.log(
-    `Server is running on http://localhost:${port} in ${nodeEnv} mode`
-  );
+  console.log(`Server is running on port ${port} in ${nodeEnv} mode`);
 });
